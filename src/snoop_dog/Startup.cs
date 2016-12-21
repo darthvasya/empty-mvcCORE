@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using snoop_dog.Models;
 using Microsoft.EntityFrameworkCore; // пространство имен EntityFramework
 using Microsoft.Extensions.Configuration;
+using snoop_dog.bll.Contracts;
+using snoop_dog.bll.Implementations;
 
 namespace snoop_dog
 {
@@ -31,6 +33,7 @@ namespace snoop_dog
             string connection = Configuration.GetConnectionString("14ServerConnection");
             services.AddDbContext<MobileContext>(options =>
                 options.UseSqlServer(connection));
+            services.AddSingleton<IMessageSender, SmsMessageSender>();
             services.AddMvc();
         }
 
