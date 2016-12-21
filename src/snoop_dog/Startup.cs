@@ -49,6 +49,8 @@ namespace snoop_dog
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SampleData.Initialize(app.ApplicationServices);
         }
     }
 }

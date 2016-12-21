@@ -1,4 +1,5 @@
-﻿@{ 
+﻿@model IEnumerable<snoop_dog.Models.Phone>
+@{ 
     Layout = null;
 }
 <!doctype html>
@@ -10,5 +11,23 @@
 </head>
 <body>
     <h2>Hello!</h2>
+
+    <table>
+        <tr>
+            <td>Модель</td>
+            <td>Производитель</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        @foreach (var phone in Model)
+            {
+            <tr>
+                <td>@phone.Name</td>
+                <td>@phone.Company</td>
+                <td>@phone.Price</td>
+                <td><a href="~/Home/Buy/@phone.Id">Купить</a></td>
+            </tr>
+        }
+    </table>
 </body>
 </html>
